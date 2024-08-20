@@ -1,0 +1,45 @@
+{
+	"workbench.startupEditor": "none",
+	"git.openRepositoryInParentFolders": "always",
+	"git.enableSmartCommit": true,
+	"git.confirmSync": false,
+	"git.autofetch": true,
+	"explorer.confirmDragAndDrop": false,
+	"explorer.confirmDelete": false,
+	"editor.formatOnPaste": true,
+	"editor.formatOnSave": true,
+	"diffEditor.ignoreTrimWhitespace": false,
+	"liveServer.settings.donotShowInfoMsg": true,
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"files.trimTrailingWhitespace": true,
+	"files.insertFinalNewline": true,
+	"[javascript]": {
+		"editor.formatOnSave": true,
+		"editor.tabSize": 4,
+		"editor.insertSpaces": false
+	},
+	"[typescript]": {
+		"editor.formatOnSave": true,
+		"editor.tabSize": 4,
+		"editor.insertSpaces": false
+	},
+	"[json]": {
+		"editor.formatOnSave": true,
+		"editor.tabSize": 4,
+		"editor.insertSpaces": false
+	},
+	"[css]": {
+		"editor.formatOnSave": true,
+		"editor.tabSize": 4,
+		"editor.insertSpaces": false
+	},
+	"[html]": {
+		"editor.formatOnSave": true,
+		"editor.tabSize": 4,
+		"editor.insertSpaces": false
+	},
+	"workbench.iconTheme": "material-icon-theme",
+	"security.workspace.trust.untrustedFiles": "open"
+}
