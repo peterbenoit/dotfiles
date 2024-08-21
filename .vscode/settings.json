@@ -1,4 +1,15 @@
 {
+	"eslint.options": {
+		"configFile": "~/.eslintrc.json"
+	},
+	"eslint.enable": true,
+	"prettier.requireConfig": true,
+	"prettier.configPath": "~/.prettierrc",
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit",
+		"source.fixAll.eslint": "explicit"
+	},
+	"editor.formatOnSave": true,
 	"workbench.startupEditor": "none",
 	"git.openRepositoryInParentFolders": "always",
 	"git.enableSmartCommit": true,
@@ -7,7 +18,6 @@
 	"explorer.confirmDragAndDrop": false,
 	"explorer.confirmDelete": false,
 	"editor.formatOnPaste": true,
-	"editor.formatOnSave": true,
 	"diffEditor.ignoreTrimWhitespace": false,
 	"liveServer.settings.donotShowInfoMsg": true,
 	"editor.tabSize": 4,
@@ -41,5 +51,6 @@
 		"editor.insertSpaces": false
 	},
 	"workbench.iconTheme": "material-icon-theme",
-	"security.workspace.trust.untrustedFiles": "open"
+	"security.workspace.trust.untrustedFiles": "open",
+	"liveServer.settings.donotVerifyTags": true
 }

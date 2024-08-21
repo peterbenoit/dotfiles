@@ -31,8 +31,8 @@ create_symlink "$DOTFILES_DIR/.eslintrc.json" "$HOME/.eslintrc.json"
 create_symlink "$DOTFILES_DIR/.prettierrc" "$HOME/.prettierrc"
 
 # Symlink VSCode settings
-create_symlink "$DOTFILES_DIR/.vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json" # macOS
+  create_symlink "$DOTFILES_DIR/.vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json" # macOS
 #create_symlink "$DOTFILES_DIR/.vscode/settings.json" "$HOME/.config/Code/User/settings.json" # Linux
 #create_symlink "$DOTFILES_DIR/.vscode/settings.json" "$APPDATA/Code/User/settings.json" # Windows
 
-echo "Dotfiles setup complete!"
+echo "Dotfiles setup complete"

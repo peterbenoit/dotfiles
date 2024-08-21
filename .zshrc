@@ -167,10 +167,15 @@ alias myip="ifconfig | grep 'inet ' | grep -v 127.0.0.1"  # Get your local IP ad
 # brew install yarn
 # brew install zsh-syntax-highlighting
 # brew install zsh-autosuggestions
+# brew install --cask snagit
 
 # Global Node packages
 # npm install -g eslint
 # npm install -g prettier
+# npm install -g eslint prettier
+# npm install -g eslint-plugin-prettier eslint-config-prettier
+
+
 
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
