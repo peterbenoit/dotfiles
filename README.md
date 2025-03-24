@@ -383,6 +383,64 @@ brew cleanup
 # Follow the interactive prompts
 ```
 
+## Package Management Strategy
+
+To avoid conflicts between Homebrew and npm, this repository follows these rules:
+
+### Install via Homebrew:
+
+-   System utilities and CLI tools written in compiled languages (Go, Rust, C++)
+-   Desktop applications (VS Code, browsers, etc.)
+-   Tools that integrate deeply with the system
+-   Supabase CLI and Firebase CLI
+-   Programming language runtimes (Node.js, Python, etc.)
+
+### Install via npm:
+
+-   JavaScript-based build tools (gulp, webpack, vite when used in projects)
+-   JavaScript-based testing frameworks (Jest, Mocha, Cypress)
+-   JavaScript linters and formatters
+-   TypeScript and type checkers
+-   Project-specific dependencies
+
+### Never install via both systems
+
+If a tool is available in both Homebrew and npm, choose one based on:
+
+1. The official documentation's recommendation
+2. Whether it's primarily a JavaScript tool (use npm) or a system tool (use Homebrew)
+3. Integration needs with the rest of your system
+
+### Current exceptions:
+
+-   Yarn - officially recommended to install via Homebrew
+-   Vite - currently used as a global tool, though project-specific is preferred
+
+### Known Package Collisions:
+
+The following packages are known to cause conflicts between npm and Homebrew:
+
+| Package    | Recommended Source | Resolution for Conflict                               |
+| ---------- | ------------------ | ----------------------------------------------------- |
+| lighthouse | npm                | `rm /opt/homebrew/bin/lighthouse` before npm install  |
+| gulp-cli   | npm                | `brew uninstall gulp-cli` if installed via Homebrew   |
+| gatsby-cli | npm                | `brew uninstall gatsby-cli` if installed via Homebrew |
+
+If you encounter an `EEXIST` error during npm installation, use one of these approaches:
+
+```bash
+# Option 1: Remove the conflicting Homebrew version
+rm /opt/homebrew/bin/package-name
+npm install -g package-name
+
+# Option 2: Force npm installation (use cautiously)
+npm install -g package-name --force
+
+# Option 3: Uninstall from Homebrew first
+brew uninstall package-name
+npm install -g package-name
+```
+
 ## Troubleshooting
 
 ### General Installation Issues

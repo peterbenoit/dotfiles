@@ -133,23 +133,23 @@ setup_npm_globals() {
 
     # Create an array of packages
     packages=(
-        "yarn"
-        "typescript"
-        "eslint"
-        "prettier"
-        "serve"
-        "http-server"
-        "lighthouse"
-		"jest"
-        "mocha"
-        "chai"
-        "puppeteer"
-        "playwright"
-		"gulp-cli"
-		"gatsby-cli"
-		"cypress"
-		"supabase"
-        "npm-check-updates"
+        "gulp-cli"           # Task runner (conflicts with Homebrew)
+        "gatsby-cli"         # Gatsby CLI (conflicts with Homebrew)
+
+        # Testing tools
+        "cypress"            # E2E testing
+        "jest"               # Testing framework
+        "mocha"              # Testing framework
+        "chai"               # Testing assertions
+
+        # Web dev utilities
+        "typescript"         # TypeScript compiler
+        "eslint"             # Linting
+        "prettier"           # Code formatting
+        "serve"              # Static file serving
+        "http-server"        # Simple HTTP server
+        "lighthouse"         # Performance testing
+        "npm-check-updates"  # Dependency updater
     )
 
     # Optional packages - ask user
@@ -164,9 +164,13 @@ setup_npm_globals() {
         )
     fi
 
-    # Install each package individually with progress indication
+    # Before installing each npm package, check if a Homebrew version exists
     for package in "${packages[@]}"; do
         echo "Installing $package..."
+        if [ -f "/opt/homebrew/bin/$package" ]; then
+            echo "Found existing Homebrew version of $package, removing..."
+            rm "/opt/homebrew/bin/$package"
+        fi
         npm install -g "$package"
     done
 
