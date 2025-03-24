@@ -1,6 +1,6 @@
 # Front-End Developer Dotfiles
 
-This repository contains configuration files and setup scripts to create an optimized front-end development environment on macOS.
+This repository contains configuration files and setup scripts that I use to create an optimized front-end development environment on macOS. YMMV.
 
 ## What's Included
 
@@ -148,3 +148,27 @@ brew doctor
 # Fix permissions
 sudo chown -R $(whoami) /usr/local/lib/node_modules
 ```
+
+## Disclaimer
+
+```
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+**IMPORTANT NOTICE**: These scripts modify system settings and install software on your computer. While they have been created with care, they may not be suitable for all environments or configurations. The author(s) cannot be held responsible for any system instability, data loss, or other issues that may arise from using these dotfiles and scripts.
+
+Before running any scripts:
+- **Back up your data**
+- **Review the code** to understand what changes will be made
+- **Use the `--safe` or `--dry-run` flags** when available to preview changes
+- **Consider running scripts incrementally** rather than all at once
+
+If you're unsure about any aspect of these scripts, run them in a test environment first or consult with someone knowledgeable about macOS system configuration.
+
+Remember: If something breaks, you assume all responsibility for fixing it. When in doubt, don't run it.
