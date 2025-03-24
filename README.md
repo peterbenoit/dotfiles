@@ -1,6 +1,8 @@
 # Front-End Developer Dotfiles
 
-This repository contains configuration files and setup scripts that I use to create an optimized front-end development environment on macOS. YMMV.
+This repository contains configuration files and setup scripts to create an optimized front-end development environment on macOS.
+
+YMMV
 
 ## What's Included
 
@@ -67,6 +69,25 @@ This script:
 -   Sets up global npm packages
 -   Creates project templates for React, Vue, and static sites
 
+#### setup.sh Options
+
+| Option             | Description                                   |
+| ------------------ | --------------------------------------------- |
+| `--safe`           | Apply only symlinks, skip installing software |
+| `--skip-templates` | Skip creating project templates               |
+| `--skip-node`      | Skip installing Node.js manager               |
+| `--skip-globals`   | Skip installing global npm packages           |
+| `--help`           | Show help message                             |
+
+```bash
+# Examples:
+./setup.sh --safe                   # Only create symlinks
+./setup.sh --skip-node              # Skip Node.js manager installation
+./setup.sh --skip-globals           # Skip global npm packages
+./setup.sh --skip-templates         # Skip project templates creation
+./setup.sh --skip-node --skip-globals  # Skip Node.js and globals
+```
+
 ### 3. fe-init.sh
 
 A tool to quickly start new front-end projects:
@@ -75,6 +96,35 @@ A tool to quickly start new front-end projects:
 -   Supports React, Vue, Angular, and static sites
 -   Adds common dependencies and configurations
 -   Sets up Git repository
+
+#### fe-init.sh Options
+
+| Option      | Description                                    |
+| ----------- | ---------------------------------------------- |
+| `--dry-run` | Show what would be done without making changes |
+| `--help`    | Show help message                              |
+
+```bash
+# Examples:
+./fe-init.sh                  # Create a new project interactively
+./fe-init.sh --dry-run        # Preview what would happen without changes
+```
+
+#### Project Types Supported
+
+1. React with Vite
+2. React + TypeScript with Vite
+3. Next.js
+4. Vue.js with Vite
+5. Angular
+6. Static HTML/CSS/JS
+
+#### CSS Framework Options
+
+1. Tailwind CSS
+2. Styled Components
+3. Material UI
+4. Bootstrap
 
 ### 4. macos-setup.sh
 
@@ -85,11 +135,61 @@ Configures macOS settings for development:
 -   Development-friendly defaults
 -   Terminal configuration
 
+#### macos-setup.sh Options
+
+| Option            | Description                      |
+| ----------------- | -------------------------------- |
+| `--interactive`   | Ask before applying each section |
+| `--skip-ui`       | Skip UI/UX settings              |
+| `--skip-keyboard` | Skip keyboard and input settings |
+| `--skip-finder`   | Skip Finder settings             |
+| `--skip-dock`     | Skip Dock settings               |
+| `--skip-safari`   | Skip Safari settings             |
+| `--skip-terminal` | Skip Terminal settings           |
+| `--skip-dev`      | Skip development tool settings   |
+| `--help`          | Show help message                |
+
+```bash
+# Examples:
+./macos-setup.sh --interactive            # Interactive mode, ask for each section
+./macos-setup.sh --skip-ui --skip-dock    # Skip UI and Dock settings
+./macos-setup.sh --skip-terminal          # Skip Terminal settings only
+```
+
+## Script Independence
+
+Each script can be run independently:
+
+-   **setup.sh** - Sets up your dotfiles, Node.js, and templates
+-   **macos-setup.sh** - Only configures macOS settings
+-   **fe-init.sh** - Only creates new projects
+-   **Brewfile** - Can be used directly with `brew bundle`
+
+You can use any script without running the others first.
+
+## How to Use Homebrew Bundles
+
+The Brewfile contains all the packages to install with Homebrew.
+
+```bash
+# Install everything in Brewfile
+brew bundle --file=Brewfile
+
+# Check what would be installed/upgraded without making changes
+brew bundle check --file=Brewfile
+
+# Install only what's missing
+brew bundle --file=Brewfile --no-upgrade
+
+# Install only command-line tools (no casks)
+grep -v "^cask" Brewfile | brew bundle --file=-
+```
+
 ## Customization Guide
 
 ### Adding New Homebrew Packages
 
-Edit the `Brewfile` and add your package:
+Edit the Brewfile and add your package:
 
 ```ruby
 brew "package-name"       # Brief description
@@ -97,7 +197,7 @@ brew "package-name"       # Brief description
 
 ### Adding Shell Aliases
 
-Edit `.zshrc` and add your aliases:
+Edit .zshrc and add your aliases:
 
 ```bash
 alias myalias="command to run"
@@ -106,7 +206,90 @@ alias myalias="command to run"
 ### Setting Up Project Templates
 
 1. Create your template in `~/GitHub/project-templates`
-2. Add generation code to `setup.sh` or `fe-init.sh`
+2. Add generation code to setup.sh or fe-init.sh
+
+## Complete Script Workflow
+
+### Full Setup Process
+
+For a new machine, this is the recommended workflow:
+
+1. Install Homebrew:
+
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    ```
+
+2. Clone the dotfiles repository:
+
+    ```bash
+    git clone https://github.com/your-username/dotfiles.git
+    cd dotfiles
+    ```
+
+3. Make scripts executable:
+
+    ```bash
+    chmod +x setup.sh
+    chmod +x fe-init.sh
+    chmod +x macos-setup.sh
+    ```
+
+4. Install software packages:
+
+    ```bash
+    brew bundle --file=Brewfile
+    ```
+
+5. Set up dotfiles:
+
+    ```bash
+    ./setup.sh
+    ```
+
+6. Configure macOS:
+    ```bash
+    ./macos-setup.sh --interactive
+    ```
+
+### Incremental Setup
+
+For a more cautious approach:
+
+1. Start with symlinks only:
+
+    ```bash
+    ./setup.sh --safe
+    ```
+
+2. Install Node.js manager:
+
+    ```bash
+    ./setup.sh --skip-templates --skip-globals
+    ```
+
+3. Install global npm packages:
+
+    ```bash
+    ./setup.sh --skip-templates --skip-node
+    ```
+
+4. Set up project templates:
+
+    ```bash
+    ./setup.sh --skip-node --skip-globals
+    ```
+
+5. Apply Finder settings only:
+
+    ```bash
+    ./macos-setup.sh --skip-ui --skip-keyboard --skip-dock --skip-safari --skip-terminal --skip-dev
+    ```
+
+6. Apply keyboard settings only:
+    ```bash
+    ./macos-setup.sh --skip-ui --skip-finder --skip-dock --skip-safari --skip-terminal --skip-dev
+    ```
 
 ## Common Commands
 
@@ -149,6 +332,16 @@ brew doctor
 sudo chown -R $(whoami) /usr/local/lib/node_modules
 ```
 
+### For macOS settings issues:
+
+-   Some settings require a logout/restart to take effect
+-   If a setting causes problems, use the specific `--skip-X` option
+
+### For project initialization issues:
+
+-   Use `--dry-run` to preview what would happen
+-   Ensure Node.js and npm are correctly installed
+
 ## Disclaimer
 
 ```
@@ -164,10 +357,11 @@ SOFTWARE.
 **IMPORTANT NOTICE**: These scripts modify system settings and install software on your computer. While they have been created with care, they may not be suitable for all environments or configurations. The author(s) cannot be held responsible for any system instability, data loss, or other issues that may arise from using these dotfiles and scripts.
 
 Before running any scripts:
-- **Back up your data**
-- **Review the code** to understand what changes will be made
-- **Use the `--safe` or `--dry-run` flags** when available to preview changes
-- **Consider running scripts incrementally** rather than all at once
+
+-   **Back up your data**
+-   **Review the code** to understand what changes will be made
+-   **Use the `--safe` or `--dry-run` flags** when available to preview changes
+-   **Consider running scripts incrementally** rather than all at once
 
 If you're unsure about any aspect of these scripts, run them in a test environment first or consult with someone knowledgeable about macOS system configuration.
 
