@@ -140,6 +140,15 @@ setup_npm_globals() {
         "serve"
         "http-server"
         "lighthouse"
+		"jest"
+        "mocha"
+        "chai"
+        "puppeteer"
+        "playwright"
+		"gulp-cli"
+		"gatsby-cli"
+		"cypress"
+		"supabase"
         "npm-check-updates"
     )
 

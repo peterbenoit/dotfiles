@@ -439,6 +439,175 @@ case $PACKAGES in
     ;;
 esac
 
+# Ask about backend integration
+echo -e "${BLUE}Would you like to add a backend service?${NC}"
+echo "1) Supabase"
+echo "2) Firebase"
+echo "3) No backend service"
+
+read -p "$(echo -e $YELLOW"Select an option (1-3): "$NC)" BACKEND
+
+case $BACKEND in
+  1) # Supabase
+    if ! $DRY_RUN; then
+      echo -e "${GREEN}Setting up Supabase integration...${NC}"
+
+      # Install Supabase client library
+      npm install @supabase/supabase-js
+
+      # For React and Next.js projects, add auth UI
+      if [ "$PROJECT_TYPE" -eq 1 ] || [ "$PROJECT_TYPE" -eq 2 ] || [ "$PROJECT_TYPE" -eq 3 ]; then
+        npm install @supabase/auth-ui-react @supabase/auth-ui-shared
+      fi
+
+      # Create environment variables file
+      cat > .env.local << EOF
+# Supabase Configuration
+VITE_SUPABASE_URL=your-project-url
+VITE_SUPABASE_ANON_KEY=your-anon-key
+EOF
+
+      # Add to .gitignore if not already there
+      if ! grep -q ".env.local" .gitignore; then
+        echo ".env.local" >> .gitignore
+      fi
+
+      # Create a basic Supabase client file
+      mkdir -p src/lib
+
+      # Different file structure based on project type
+      if [ "$PROJECT_TYPE" -eq 1 ] || [ "$PROJECT_TYPE" -eq 2 ]; then
+        # React with Vite
+        cat > src/lib/supabase.js << EOF
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+EOF
+      elif [ "$PROJECT_TYPE" -eq 3 ]; then
+        # Next.js
+        cat > src/lib/supabase.js << EOF
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+EOF
+        # Update .env.local for Next.js
+        cat > .env.local << EOF
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+EOF
+      elif [ "$PROJECT_TYPE" -eq 4 ]; then
+        # Vue with Vite
+        cat > src/lib/supabase.js << EOF
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+EOF
+      fi
+
+      # Create a simple README example for Supabase usage
+      cat >> README.md << EOF
+
+## Supabase Integration
+
+This project includes Supabase for backend services. To configure:
+
+1. Create a Supabase project at https://supabase.com
+2. Get your project URL and anon key
+3. Update the .env.local file with your credentials
+
+### Example Usage
+
+\`\`\`javascript
+import { supabase } from './lib/supabase'
+
+// Query data
+const { data, error } = await supabase
+  .from('your_table')
+  .select('*')
+
+// Insert data
+const { data, error } = await supabase
+  .from('your_table')
+  .insert([{ some_column: 'someValue' }])
+\`\`\`
+EOF
+
+      echo -e "${GREEN}Supabase integration added${NC}"
+      echo -e "${YELLOW}Important: Update .env.local with your actual Supabase credentials${NC}"
+    else
+      echo -e "${YELLOW}Would set up Supabase integration${NC}"
+    fi
+    ;;
+
+  2) # Firebase
+    if ! $DRY_RUN; then
+      echo -e "${GREEN}Setting up Firebase integration...${NC}"
+
+      # Install Firebase
+      npm install firebase
+
+      # Create basic Firebase configuration
+      mkdir -p src/lib
+      cat > src/lib/firebase.js << EOF
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+export const auth = getAuth(app);
+EOF
+
+      # Update README
+      cat >> README.md << EOF
+
+## Firebase Integration
+
+This project includes Firebase integration. To configure:
+
+1. Create a Firebase project at https://console.firebase.google.com
+2. Get your Firebase configuration
+3. Update the src/lib/firebase.js file with your credentials
+EOF
+
+      echo -e "${GREEN}Firebase integration added${NC}"
+      echo -e "${YELLOW}Important: Update firebase.js with your actual Firebase credentials${NC}"
+    else
+      echo -e "${YELLOW}Would set up Firebase integration${NC}"
+    fi
+    ;;
+
+  3) # No backend service
+    echo -e "${GREEN}No backend service selected${NC}"
+    ;;
+
+  *)
+    echo -e "${RED}Invalid option selected${NC}"
+    ;;
+esac
+
 # Create VS Code settings
 if ! $DRY_RUN; then
   echo -e "${GREEN}Creating VS Code settings...${NC}"

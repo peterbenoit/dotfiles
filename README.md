@@ -385,6 +385,34 @@ brew doctor
 sudo chown -R $(whoami) /usr/local/lib/node_modules
 ```
 
+### For Homebrew symlink conflicts:
+
+If you see errors about existing symlinks when installing via Homebrew, you can resolve them with:
+
+```bash
+# For example, with gulp-cli:
+rm '/opt/homebrew/bin/gulp'
+brew link gulp-cli
+
+# Or force overwrite all conflicting files:
+brew link --overwrite gulp-cli
+```
+
+### For Homebrew Installation Issues:
+
+#### Symlink Conflicts
+
+If you see errors about existing symlinks:
+
+```bash
+# For example, with gulp-cli:
+rm '/opt/homebrew/bin/gulp'
+brew link gulp-cli
+
+# Or force overwrite all conflicting files:
+brew link --overwrite gulp-cli
+```
+
 ### For macOS settings issues:
 
 -   Some settings require a logout/restart to take effect

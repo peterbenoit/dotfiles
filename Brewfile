@@ -4,8 +4,8 @@ tap "homebrew/bundle"
 
 # === Programming Languages & Runtimes ===
 brew "python@3.12"
-brew "node"               # JavaScript runtime
-brew "deno"			  	# Secure JavaScript/TypeScript runtime
+brew "node"               # JavaScript runtime (includes npm)
+brew "deno"               # Secure JavaScript/TypeScript runtime
 
 # === Version Control ===
 brew "git"
@@ -15,55 +15,53 @@ brew "gh"                 # GitHub CLI
 brew "yarn"               # Package manager
 brew "fonttools"          # Font manipulation
 brew "pnpm"               # Fast, disk space efficient package manager
-brew "gulp-cli"           # Task runner for automation
+# brew "gulp-cli"         # Commented out due to symlink conflict - install via npm instead
 brew "vite"               # Modern frontend tooling (preferred over webpack)
-# brew "webpack"          # Legacy module bundler
-brew "parcel"             # Blazing fast, zero configuration web application bundler
+# brew "webpack"          # Legacy module bundler (commented out)
 
 # === Database Tools ===
 brew "postgresql"         # Object-relational database system
 brew "redis"              # In-memory data structure store
-brew "mongodb-community"  # NoSQL database
+# MongoDB has issues with Homebrew - consider Docker or direct install instead
+# tap "mongodb/brew"
+# brew "mongodb/brew/mongodb-community"  # NoSQL database
 
 # === API Development ===
-brew "postman"
-brew "insomnia"           # API design and testing tool
+cask "postman"            # API platform for building and using APIs
+cask "insomnia"           # REST and GraphQL API client
+
 brew "curl"               # Command line tool for transferring data with URLs
 brew "httpie"             # User-friendly HTTP client
 
-# === Containerization & Virtualization
+# === Containerization & Virtualization ===
 brew "docker"             # Container platform
 brew "podman"             # Alternative container platform
 brew "minikube"           # Local Kubernetes
 brew "kubernetes-cli"     # Command-line tool for Kubernetes
-brew "vagrant"            # Tool for building and managing virtualized development environments
+cask "vagrant"            # Tool for building and managing virtualized development environments
 
 # === Testing Tools ===
-brew "cypress"            # Front-end testing tool
-brew "jest"               # JavaScript testing framework
-brew "mocha"              # JavaScript test framework
-brew "chai"               # Assertion library for Node.js and browsers
-brew "enzyme"             # JavaScript testing utility for React
-brew "puppeteer"          # Node library which provides a high-level API to control Chrome or Chromium
-brew "playwright"         # Node library to automate the Chromium, WebKit, and Firefox browsers
+# Cypress should be installed via npm instead of Homebrew
+# npm install -g cypress
 brew "selenium-server-standalone" # Selenium server for browser automation
 brew "k6"                 # Modern load testing tool
 brew "locust"             # Scalable user load testing tool
 
 # === Static Site Generators ===
-brew "jekyll"             # Static site generator
-brew "hugo"               # Another static site generator
-brew "gatsby-cli"         # CLI for Gatsby.js
-# brew "next"               # Next.js CLI
-# brew "nuxt"               # Nuxt.js CLI
+brew "hugo"               # Static site generator
+# brew "gatsby-cli"       # Commented out due to symlink conflict - install via npm instead
 
-# We should use npm global installations in setup.sh:
+# Note: These should be installed via npm, not Homebrew:
+# npm install -g gatsby-cli
+# npm install -g cypress
+# npm install -g gulp-cli
+# npm install -g jekyll
 # npm install -g next
 # npm install -g create-nuxt-app
 
 # === Web Performance Tools ===
 brew "lighthouse"         # Website auditing tool
-brew "imageoptim-cli"     # Image optimization
+# brew "imageoptim-cli"   # Image optimization (no Apple Silicon bottle available)
 
 # === Terminal Enhancements ===
 brew "zsh-autosuggestions"
@@ -81,89 +79,29 @@ cask "warp"               # Modern, GPU-accelerated terminal with AI features
 # === Front-End Desktop Apps ===
 cask "visual-studio-code" # Code editor
 cask "figma"              # UI design tool
-cask "browser-stack"      # Cross-browser testing
-cask "responsively-app"   # Responsive web design testing
+cask "browserstacklocal"  # Cross-browser testing
+cask "responsively"       # Responsive web design testing
 
-# === Browsers for Testing ===
+# === Browsers ===
 cask "google-chrome"
 cask "firefox"
-cask "firefox-developer-edition"
+cask "firefox@developer-edition"
 cask "brave-browser"
 
-# === Productivity ===
+# === Utilities ===
 cask "bitwarden"          # Password manager
-cask "alfred"             # App launcher
+cask "alfred"             # Productivity app
 cask "bartender"          # Menu bar organizer
-cask "chatgpt"            # AI assistant
-cask "github"             # GitHub client
-cask "iterm2"             # Terminal
-cask "snagit"             # Screenshot tool
-cask "utm"                # Virtual machines
-cask "vagrant"            # Development environments
+cask "chatgpt"            # ChatGPT client
+cask "github"             # GitHub desktop client
+cask "iterm2"             # Terminal emulator
+cask "snagit"             # Screen capture software
+# Using 'cask "utm"' had issues - try reinstalling manually if needed
 cask "vlc"                # Media player
-cask "wireshark"          # Network analyzer
-cask "protonvpn"          # VPN
-cask "affinity-photo"     # Image editor
+cask "wireshark"          # Network protocol analyzer
+cask "protonvpn"          # VPN client
+cask "affinity-photo"     # Photo editing software
 
 # === VS Code Extensions ===
-# Front-End Essentials
-vscode "dbaeumer.vscode-eslint"
-vscode "esbenp.prettier-vscode"
-vscode "bradlc.vscode-tailwindcss"      # Tailwind CSS
-vscode "dsznajder.es7-react-js-snippets" # React snippets
-vscode "formulahendry.auto-rename-tag"
-vscode "ritwickdey.liveserver"
-vscode "mrmlnc.vscode-autoprefixer"
-
-# JavaScript/TypeScript
-vscode "ms-vscode.vscode-typescript-tslint"
-vscode "rvest.vs-code-prettier-eslint"
-vscode "standard.vscode-standard"
-
-# React/Vue/Angular
-vscode "angular.ng-template"
-vscode "vue.volar"
-
-# Styling
-vscode "syler.sass-indented"
-vscode "ecmel.vscode-html-css"
-vscode "jock.svg"
-vscode "simonsiefke.svg-preview"
-
-# Productivity
-vscode "eamodio.gitlens"
-vscode "github.copilot"
-vscode "christian-kohler.path-intellisense"
-vscode "vincaslt.highlight-matching-tag"
-vscode "pkief.material-icon-theme"
-vscode "zhuangtongfa.material-theme"
-
-# Additional Extensions
-vscode "mechatroner.rainbow-csv"
-vscode "humao.rest-client"
-vscode "fabiospampinato.vscode-terminals"
-vscode "spywhere.guides"
-vscode "shardulm94.trailing-spaces"
-vscode "editorconfig.editorconfig"
-vscode "bmewburn.vscode-intelephense-client"
-vscode "github.codespaces"
-vscode "github.remotehub"
-vscode "github.vscode-github-actions"
-vscode "mrmlnc.vscode-duplicate"
-vscode "ms-python.debugpy"
-vscode "ms-python.python"
-vscode "ms-toolsai.jupyter"
-vscode "ms-toolsai.jupyter-renderers"
-vscode "ms-toolsai.vscode-jupyter-cell-tags"
-vscode "ms-toolsai.vscode-jupyter-slideshow"
-vscode "ms-vscode-remote.remote-wsl"
-vscode "ms-vscode.extension-test-runner"
-vscode "ms-vscode.powershell"
-vscode "ms-vscode.remote-repositories"
-vscode "nonoroazoro.syncing"
-vscode "undefined_publisher.spacetotabsonsave"
-vscode "unifiedjs.vscode-mdx"
-vscode "visualstudioexptteam.intellicode-api-usage-examples"
-vscode "visualstudioexptteam.vscodeintellicode"
-vscode "vscode-icons-team.vscode-icons"
-vscode "xdebug.php-debug"
+# VS Code extensions are best installed directly via VS Code or its CLI
+# rather than through Homebrew
