@@ -1,56 +1,80 @@
 {
-	"eslint.options": {
-		"configFile": "~/.eslintrc.json"
-	},
-	"eslint.enable": true,
-	"prettier.requireConfig": true,
-	"prettier.configPath": "~/.prettierrc",
-	"editor.codeActionsOnSave": {
-		"source.fixAll": "explicit",
-		"source.fixAll.eslint": "explicit"
-	},
-	"editor.formatOnSave": true,
-	"workbench.startupEditor": "none",
-	"git.openRepositoryInParentFolders": "always",
-	"git.enableSmartCommit": true,
-	"git.confirmSync": false,
-	"git.autofetch": true,
-	"explorer.confirmDragAndDrop": false,
-	"explorer.confirmDelete": false,
-	"editor.formatOnPaste": true,
-	"diffEditor.ignoreTrimWhitespace": false,
-	"liveServer.settings.donotShowInfoMsg": true,
-	"editor.tabSize": 4,
-	"editor.insertSpaces": false,
-	"editor.detectIndentation": false,
-	"files.trimTrailingWhitespace": true,
-	"files.insertFinalNewline": true,
-	"[javascript]": {
-		"editor.formatOnSave": true,
-		"editor.tabSize": 4,
-		"editor.insertSpaces": false
-	},
-	"[typescript]": {
-		"editor.formatOnSave": true,
-		"editor.tabSize": 4,
-		"editor.insertSpaces": false
-	},
-	"[json]": {
-		"editor.formatOnSave": true,
-		"editor.tabSize": 4,
-		"editor.insertSpaces": false
-	},
-	"[css]": {
-		"editor.formatOnSave": true,
-		"editor.tabSize": 4,
-		"editor.insertSpaces": false
-	},
-	"[html]": {
-		"editor.formatOnSave": true,
-		"editor.tabSize": 4,
-		"editor.insertSpaces": false
-	},
-	"workbench.iconTheme": "material-icon-theme",
-	"security.workspace.trust.untrustedFiles": "open",
-	"liveServer.settings.donotVerifyTags": true
+    "eslint.options": {
+        "configFile": "~/.eslintrc.json"
+    },
+    "eslint.enable": true,
+    "prettier.requireConfig": true,
+    "prettier.configPath": "~/.prettierrc",
+    "npm.packageManager": "npm",
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.fixAll.eslint": "explicit"
+    },
+    "editor.formatOnSave": true,
+    "workbench.startupEditor": "none",
+    "git.openRepositoryInParentFolders": "always",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "editor.formatOnPaste": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": false,
+        "editor.defaultFormatter": "vscode.css-language-features"
+    },
+    "[html]": {
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.insertSpaces": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "security.workspace.trust.untrustedFiles": "open",
+    "liveServer.settings.donotVerifyTags": true,
+    "explorer.confirmPasteNative": false,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "remoteHub.commitDirectlyWarning": "off",
+    "vsicons.dontShowNewVersionMessage": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar"
+    },
+    "chat.editing.alwaysSaveWithGeneratedChanges": true,
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "open-all-files.recursive": true,
+    "editor.inlineSuggest.suppressSuggestions": true,
+    "cody.commandCodeLenses": true,
+    "openctx.providers": {}
 }
