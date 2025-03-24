@@ -1,8 +1,6 @@
 # Front-End Developer Dotfiles
 
-This repository contains configuration files and setup scripts to create an optimized front-end development environment on macOS.
-
-YMMV
+This repository contains configuration files and setup scripts I use to create an optimized front-end development environment on macOS.
 
 ## What's Included
 
@@ -155,6 +153,61 @@ Configures macOS settings for development:
 ./macos-setup.sh --skip-ui --skip-dock    # Skip UI and Dock settings
 ./macos-setup.sh --skip-terminal          # Skip Terminal settings only
 ```
+
+#### Detailed macOS Settings
+
+Here's what each section of `macos-setup.sh` actually changes:
+
+1. **UI/UX Settings (`--skip-ui`)**
+
+    - Allows setting a custom computer name
+    - Expands save and print panels by default
+    - Saves files to disk (not iCloud) by default
+    - Disables automatic capitalization
+    - Disables auto-correct
+
+2. **Keyboard & Input Settings (`--skip-keyboard`)**
+
+    - Enables full keyboard access for all controls
+    - Configures scroll gesture with Ctrl modifier to zoom
+    - Sets keyboard repeat rate for faster typing
+    - May adjust key repeat delay
+
+3. **Finder Settings (`--skip-finder`)**
+
+    - Shows hidden files (optional)
+    - Shows all filename extensions
+    - Shows status bar and path bar
+    - Keeps folders on top when sorting
+    - Changes default search scope to current folder
+    - Disables extension change warning
+    - Prevents .DS_Store file creation on network/USB volumes
+
+4. **Dock Settings (`--skip-dock`)**
+
+    - Sets the Dock icon size to 48px
+    - Minimizes windows into application icons
+    - Shows indicator lights for open applications
+    - Optionally enables auto-hide
+
+5. **Safari Settings (`--skip-safari`)**
+
+    - Shows full URLs in address bar
+    - Prevents auto-opening of "safe" downloads
+    - Enables Developer menu and Web Inspector
+    - Enables "Do Not Track" header
+
+6. **Terminal Settings (`--skip-terminal`)**
+
+    - Uses UTF-8 encoding in Terminal
+    - Enables Secure Keyboard Entry
+    - Optionally installs Oh My Zsh
+
+7. **Development Settings (`--skip-dev`)**
+    - Configures Git user name and email if installed
+    - Sets Git default branch to main
+    - Sets the default Git editor to VS Code
+    - Configures Git to rebase on pull
 
 ## Script Independence
 
