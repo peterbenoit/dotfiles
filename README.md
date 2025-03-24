@@ -2,6 +2,8 @@
 
 This repository contains configuration files and setup scripts I use to create an optimized front-end development environment on macOS.
 
+**Important:** Please read the [Disclaimer](#disclaimer) section before proceeding.
+
 ## What's Included
 
 This dotfiles repository provides:
@@ -123,6 +125,20 @@ A tool to quickly start new front-end projects:
 2. Styled Components
 3. Material UI
 4. Bootstrap
+
+#### Backend Service Options
+
+1. Supabase
+
+    - Adds Supabase client libraries
+    - Creates environment configuration
+    - Sets up authentication components (for React/Next.js)
+    - Adds examples to README
+
+2. Firebase
+    - Adds Firebase client libraries
+    - Creates basic configuration file
+    - Adds examples to README
 
 ### 4. macos-setup.sh
 
@@ -369,6 +385,34 @@ brew cleanup
 
 ## Troubleshooting
 
+### General Installation Issues
+
+Software evolves continuously, and package names, dependencies, and installation methods may change over time. If you encounter installation issues:
+
+```bash
+# Get information about a package
+brew info package-name
+
+# Search for alternative package names
+brew search keyword
+
+# Check what would be installed before committing
+brew bundle --file=Brewfile --dry-run
+```
+
+**Common issues to expect:**
+
+-   Packages being renamed, deprecated, or moved to different repositories
+-   New major versions with different installation requirements
+-   Casks changing their naming conventions
+-   Projects becoming unmaintained and requiring alternatives
+
+If these scripts become outdated (which is inevitable with time), please consider:
+
+1. Opening an issue or PR to update them
+2. Checking the package's official documentation for current installation methods
+3. Adapting the commands to the latest requirements
+
 ### If setup.sh fails:
 
 -   Ensure you have write permissions to destination directories
@@ -383,6 +427,12 @@ brew doctor
 
 # Fix permissions
 sudo chown -R $(whoami) /usr/local/lib/node_modules
+
+# Update Homebrew itself
+brew update
+
+# If a formula is broken or outdated, try the developer's repo
+brew tap author/repository
 ```
 
 ### For Homebrew symlink conflicts:
@@ -398,30 +448,31 @@ brew link gulp-cli
 brew link --overwrite gulp-cli
 ```
 
-### For Homebrew Installation Issues:
+This happens when you've previously installed packages via npm globally and are now installing via Homebrew.
 
-#### Symlink Conflicts
+### For cask naming issues:
 
-If you see errors about existing symlinks:
+If you receive "Cask is unavailable" errors:
 
 ```bash
-# For example, with gulp-cli:
-rm '/opt/homebrew/bin/gulp'
-brew link gulp-cli
+# Search for the correct cask name
+brew search firefox
 
-# Or force overwrite all conflicting files:
-brew link --overwrite gulp-cli
+# Use the exact cask name in your Brewfile
+# For example: cask "firefox@developer-edition" instead of cask "firefox-developer-edition"
 ```
 
 ### For macOS settings issues:
 
 -   Some settings require a logout/restart to take effect
 -   If a setting causes problems, use the specific `--skip-X` option
+-   Apple frequently changes system preferences interfaces and APIs across macOS versions
 
 ### For project initialization issues:
 
 -   Use `--dry-run` to preview what would happen
 -   Ensure Node.js and npm are correctly installed
+-   Check for updates to the frameworks being used (React, Vue, etc.)
 
 ## Disclaimer
 
