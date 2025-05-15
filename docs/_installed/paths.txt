@@ -1,0 +1,5 @@
+/opt/homebrew/bin/gh
+/opt/homebrew/bin/docker
+/Users/peterbenoit/.nvm/versions/node/v20.19.1/bin/node
+/Users/peterbenoit/.pyenv/shims/python3
+/opt/homebrew/bin/git

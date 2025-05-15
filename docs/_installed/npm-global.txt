@@ -1,0 +1,4 @@
+/Users/peterbenoit/.nvm/versions/node/v20.19.1/lib
+├── corepack@0.31.0
+└── npm@10.8.2
+

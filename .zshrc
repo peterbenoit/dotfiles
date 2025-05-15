@@ -261,10 +261,15 @@ fi
 [ -f ~/.tokens.zsh ] && source ~/.tokens.zsh
 
 # Front-end related environment variables
-export NODE_ENV="development"
+# export NODE_ENV="development"
 export BROWSER="chrome"
 
 # ====================================================================
 # Powerlevel10k Configuration
 # ====================================================================
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+
+# Added by Windsurf
+export PATH="/Users/peterbenoit/.codeium/windsurf/bin:$PATH"

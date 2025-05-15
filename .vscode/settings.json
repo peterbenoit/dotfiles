@@ -30,7 +30,7 @@
         "editor.formatOnSave": true,
         "editor.tabSize": 4,
         "editor.insertSpaces": false,
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "[typescript]": {
         "editor.formatOnSave": true,
@@ -56,7 +56,6 @@
         "editor.insertSpaces": false,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "workbench.iconTheme": "material-icon-theme",
     "security.workspace.trust.untrustedFiles": "open",
     "liveServer.settings.donotVerifyTags": true,
     "explorer.confirmPasteNative": false,
@@ -76,5 +75,18 @@
     "open-all-files.recursive": true,
     "editor.inlineSuggest.suppressSuggestions": true,
     "cody.commandCodeLenses": true,
-    "openctx.providers": {}
+    "openctx.providers": {},
+    "git.ignoreRebaseWarning": true,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": false,
+        "scminput": false,
+        "html": true
+    },
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "gemini-ai-assistant.apiKey": "AIzaSyAsQZVMOl2iv9RZW-Rdf5qAD4GmUa_lcjc",
+    "gemini-ai-assistant.modelEndpoint": "https://generativelanguage.googleapis.com",
+    "workbench.iconTheme": "material-icon-theme"
 }

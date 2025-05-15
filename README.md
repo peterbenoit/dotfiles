@@ -22,7 +22,7 @@ This method applies only the essential configurations without changing system se
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/dotfiles.git
+git clone https://github.com/peterbenoit/dotfiles.git
 cd dotfiles
 
 # Make scripts executable
