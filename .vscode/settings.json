@@ -56,26 +56,20 @@
         "editor.insertSpaces": false,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "security.workspace.trust.untrustedFiles": "open",
     "liveServer.settings.donotVerifyTags": true,
     "explorer.confirmPasteNative": false,
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "remoteHub.commitDirectlyWarning": "off",
     "vsicons.dontShowNewVersionMessage": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
     "[vue]": {
         "editor.defaultFormatter": "Vue.volar"
     },
-    "chat.editing.alwaysSaveWithGeneratedChanges": true,
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "open-all-files.recursive": true,
     "editor.inlineSuggest.suppressSuggestions": true,
-    "cody.commandCodeLenses": true,
-    "openctx.providers": {},
     "git.ignoreRebaseWarning": true,
     "github.copilot.nextEditSuggestions.enabled": true,
     "github.copilot.enable": {
@@ -86,7 +80,6 @@
         "html": true
     },
     "editor.unicodeHighlight.invisibleCharacters": false,
-    "gemini-ai-assistant.apiKey": "AIzaSyAsQZVMOl2iv9RZW-Rdf5qAD4GmUa_lcjc",
-    "gemini-ai-assistant.modelEndpoint": "https://generativelanguage.googleapis.com",
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "terminal.integrated.fontFamily": "FiraCode Nerd Font"
 }

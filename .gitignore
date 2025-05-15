@@ -1,1 +1,3 @@
+# Ignore Brewfile.lock.json for reproducibility
 Brewfile.lock.json
+.vscode/other-settings.json

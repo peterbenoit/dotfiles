@@ -1,0 +1,104 @@
+brew bundle --file=Brewfile
+Using homebrew/bundle
+Using supabase/tap
+Using python@3.12
+Using node
+Using deno
+Using git
+Using gh
+Using yarn
+Using fonttools
+Using pnpm
+Using supabase
+Installing firebase-cli
+==> Downloading https://ghcr.io/v2/homebrew/core/firebase-cli/manifests/14.3.1
+==> Fetching firebase-cli
+==> Downloading https://ghcr.io/v2/homebrew/core/firebase-cli/blobs/sha256:4f287564636504825950c7c2600c8b5f63dd6a711b11c65ebe40ee8e09e867ad
+==> Pouring firebase-cli--14.3.1.arm64_sequoia.bottle.tar.gz
+Error: The `brew link` step did not complete successfully
+The formula built, but is not symlinked into /opt/homebrew
+Could not symlink bin/firebase
+Target /opt/homebrew/bin/firebase
+already exists. You may want to remove it:
+  rm '/opt/homebrew/bin/firebase'
+
+To force the link and overwrite all conflicting files:
+  brew link --overwrite firebase-cli
+
+To list all files that would be deleted:
+  brew link --overwrite firebase-cli --dry-run
+
+Possible conflicting files are:
+/opt/homebrew/bin/firebase -> /opt/homebrew/lib/node_modules/firebase-tools/lib/bin/firebase.js
+==> Summary
+🍺  /opt/homebrew/Cellar/firebase-cli/14.3.1: 15,452 files, 143.8MB
+==> Running `brew cleanup firebase-cli`...
+Disable this behaviour by setting HOMEBREW_NO_INSTALL_CLEANUP.
+Hide these hints with HOMEBREW_NO_ENV_HINTS (see `man brew`).
+Installing firebase-cli has failed!
+Upgrading postgresql
+Upgrading redis
+Using postman
+Using insomnia
+Upgrading curl
+Using httpie
+Upgrading docker
+Upgrading podman
+Using minikube
+Upgrading kubernetes-cli
+Upgrading vagrant
+Password:
+Using selenium-server-standalone
+Upgrading k6
+Using locust
+Upgrading hugo
+Using zsh-autosuggestions
+Using zsh-syntax-highlighting
+Upgrading htop
+Using jq
+Using neofetch
+Using tree
+Upgrading ncdu
+Using glances
+Using wget
+Using nmap
+Using warp
+Installing ripgrep
+Installing bat
+Installing fd
+Warning: 'exa' formula is unreadable: No available formula with the name "exa". Did you mean eza or eva?
+Installing exa
+Warning: 'exa' formula is unreadable: No available formula with the name "exa". Did you mean eza or eva?
+Warning: No available formula with the name "exa". Did you mean eza or eva?
+It was migrated from homebrew/cask to homebrew/core.
+Installing exa has failed!
+Installing starship
+Installing zoxide
+Using visual-studio-code
+Using figma
+Upgrading browserstacklocal
+Password:
+Using responsively
+Using google-chrome
+Using firefox
+Using firefox@developer-edition
+Using brave-browser
+Using bitwarden
+Using alfred
+Using bartender
+Using chatgpt
+Using github
+Using iterm2
+Upgrading snagit
+==> Upgrading 1 outdated package:
+snagit 2025.0.0 -> 2025.2.0
+==> Upgrading snagit
+==> Downloading https://download.techsmith.com/snagitmac/releases/2520/snagit.dmg
+Error: snagit: It seems the App source '/Applications/Snagit.app' is not there.
+==> Purging files for version 2025.2.0 of Cask snagit
+Upgrading snagit has failed!
+Using vlc
+Using wireshark
+Using protonvpn
+Using affinity-photo
+`brew bundle` failed! 3 Brewfile dependencies failed to install

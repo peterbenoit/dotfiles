@@ -1,6 +1,7 @@
 # brew bundle dump
 # brew bundle
 tap "homebrew/bundle"
+tap "supabase/tap"
 
 # === Programming Languages & Runtimes ===
 brew "python@3.12"
@@ -17,8 +18,7 @@ brew "fonttools"          # Font manipulation
 brew "pnpm"               # Fast, disk space efficient package manager
 
 # === Backend & API Tools ===
-brew "supabase/tap/supabase"  # Supabase CLI for local development
-brew "firebase-cli"          # Firebase CLI for local development
+brew "supabase"               # Supabase CLI for local development
 
 # === Database Tools ===
 brew "postgresql"         # Object-relational database system
@@ -58,6 +58,14 @@ brew "wget"
 brew "nmap"
 cask "warp"               # Modern, GPU-accelerated terminal with AI features
 
+# Added modern CLI tools
+brew "ripgrep"            # Fast text search
+brew "bat"                # Cat clone with syntax highlighting
+brew "fd"                 # Simple, fast, user-friendly alternative to find
+brew "eza"                # Modern replacement for ls
+brew "starship"           # Minimal, blazing-fast shell prompt
+brew "zoxide"             # Smarter cd command
+
 # === Front-End Desktop Apps ===
 cask "visual-studio-code" # Code editor
 cask "figma"              # UI design tool
@@ -77,8 +85,11 @@ cask "bartender"          # Menu bar organizer
 cask "chatgpt"            # ChatGPT client
 cask "github"             # GitHub desktop client
 cask "iterm2"             # Terminal emulator
-cask "snagit"             # Screen capture software
+# cask "snagit"             # Screen capture software
 cask "vlc"                # Media player
 cask "wireshark"          # Network protocol analyzer
 cask "protonvpn"          # VPN client
 cask "affinity-photo"     # Photo editing software
+
+# === Fonts ===
+cask "font-fira-code-nerd-font"
