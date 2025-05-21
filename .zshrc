@@ -133,7 +133,7 @@ alias brewlist="brew list --cask"
 alias bcleanup="brew cleanup"
 alias trash="rm -rf ~/.Trash/*"
 alias dotfiles="code ~/.zshrc"
-alias warp="open -a Warp"  # Open Warp terminal
+alias warp="open -a Warp"
 
 # Networking
 alias ip="curl ifconfig.me"
