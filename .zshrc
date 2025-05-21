@@ -133,16 +133,75 @@ alias brewlist="brew list --cask"
 alias bcleanup="brew cleanup"
 alias trash="rm -rf ~/.Trash/*"
 alias dotfiles="code ~/.zshrc"
-alias warp="open -a Warp --args --cwd=\"$(pwd)\""  # Attempting to open Warp terminal in the current directory
-alias code="code-insiders"  # Use VSCode Insiders
-alias code="code --new-window"  # Open a new window in VSCode
-alias code="code --reuse-window"  # Reuse the current window in VSCode
-alias code="code --disable-extensions"  # Open VSCode without extensions
-alias code="code --disable-gpu"  # Open VSCode without GPU acceleration
-alias code="code --no-sandbox"  # Open VSCode without sandboxing
-alias code="code --disable-software-rasterizer"  # Open VSCode without software rasterization
-alias code="code --disable-extensions --no-sandbox"  # Open VSCode without extensions and sandboxing
-alias code="code --disable-extensions --disable-gpu"  # Open VSCode without extensions and GPU acceleration
+alias warp="open -a Warp --args --cwd=\"$(pwd)\""  # Open Warp terminal in the current directory
+
+# VSCode with various options - using a function instead of multiple aliases
+function vsc() {
+  case "$1" in
+    insiders)
+      command code-insiders ${@:2}
+      return
+      ;;
+    new)
+      command code --new-window ${@:2}
+      ;;
+    reuse)
+      command code --reuse-window ${@:2}
+      ;;
+    noext)
+      command code --disable-extensions ${@:2}
+      ;;
+    nogpu)
+      command code --disable-gpu ${@:2}
+      ;;
+    nosand)
+      command code --no-sandbox ${@:2}
+      ;;
+    norender)
+      command code --disable-software-rasterizer ${@:2}
+      ;;
+    safe)
+      command code --disable-extensions --no-sandbox ${@:2}
+      ;;
+    light)
+      command code --disable-extensions --disable-gpu ${@:2}
+      ;;
+    *)
+      # Default behavior - pass all arguments to code
+      command code "$@"
+      ;;
+  esac
+}
+
+# Basic usage (normal VSCode)
+# vsc myfile.js
+
+# Use VSCode Insiders
+# vsc insiders myfile.js
+
+# Open in a new window
+# vsc new myfile.js
+
+# Open reusing the current window
+# vsc reuse myfile.js
+
+# Open without extensions
+# vsc noext myfile.js
+
+# Open without GPU acceleration
+# vsc nogpu myfile.js
+
+# Open without sandboxing
+# vsc nosand myfile.js
+
+# Open without software rendering
+# vsc norender myfile.js
+
+# Safe mode (no extensions + no sandbox)
+# vsc safe myfile.js
+
+# Light mode (no extensions + no GPU)
+# vsc light myfile.js
 
 # Networking
 alias ip="curl ifconfig.me"
