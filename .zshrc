@@ -133,7 +133,16 @@ alias brewlist="brew list --cask"
 alias bcleanup="brew cleanup"
 alias trash="rm -rf ~/.Trash/*"
 alias dotfiles="code ~/.zshrc"
-alias warp="open -a Warp"
+alias warp="open -a Warp --args --cwd=\"$(pwd)\""  # Attempting to open Warp terminal in the current directory
+alias code="code-insiders"  # Use VSCode Insiders
+alias code="code --new-window"  # Open a new window in VSCode
+alias code="code --reuse-window"  # Reuse the current window in VSCode
+alias code="code --disable-extensions"  # Open VSCode without extensions
+alias code="code --disable-gpu"  # Open VSCode without GPU acceleration
+alias code="code --no-sandbox"  # Open VSCode without sandboxing
+alias code="code --disable-software-rasterizer"  # Open VSCode without software rasterization
+alias code="code --disable-extensions --no-sandbox"  # Open VSCode without extensions and sandboxing
+alias code="code --disable-extensions --disable-gpu"  # Open VSCode without extensions and GPU acceleration
 
 # Networking
 alias ip="curl ifconfig.me"
