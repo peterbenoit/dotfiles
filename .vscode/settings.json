@@ -72,9 +72,10 @@
     "editor.inlineSuggest.suppressSuggestions": true,
     "git.ignoreRebaseWarning": true,
     "github.copilot.nextEditSuggestions.enabled": true,
+	"github.copilot.chat.codeGeneration.useInstructionFiles": true,
     "github.copilot.enable": {
         "*": true,
-        "plaintext": true,
+        "plaintext": false,
         "markdown": false,
         "scminput": false,
         "html": true
